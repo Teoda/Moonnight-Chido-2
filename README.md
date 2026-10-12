@@ -39,6 +39,12 @@ npm start              # node build (adapter-node)
 - Si hay un proxy delante (Nginx, Caddy, hosting), configura `ADDRESS_HEADER`/`XFF_DEPTH`/`PROTOCOL_HEADER` aquí
   y `TRUST_PROXY` en el back (cuenta también este servidor de SvelteKit como un proxy).
 
+## Vercel
+Al compilar en Vercel (`VERCEL=1`) se usa `@sveltejs/adapter-vercel` automáticamente (ver `vite.config.ts`); no hace falta `vercel.json`.
+- **Root Directory:** la raíz del repo · **Framework:** SvelteKit · **Node.js:** 22.x
+- **Environment Variables:** `API_URL` = dirección **pública** del back (`https://…`, sin `/` al final). `localhost` no sirve en Vercel.
+- En el back: `ALLOWED_ORIGINS` debe incluir la dirección de este sitio en Vercel (p. ej. `https://moonnight-chido-2.vercel.app`).
+
 ## Estructura
 | Ruta | Qué es |
 |---|---|
